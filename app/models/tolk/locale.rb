@@ -52,7 +52,7 @@ module Tolk
       end
 
       def secondary_locales
-        all - [primary_locale]
+        all
       end
 
       def dump_all(*args)
