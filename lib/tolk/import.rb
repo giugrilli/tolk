@@ -29,6 +29,9 @@ module Tolk
         count = 0
 
         data.each do |key, value|
+
+          next if Tolk.config.ignore_keys.any?{|ik| key.include?("#{ik}.") }
+
           phrase = phrases_by_key[key]
           unless phrase
             puts "[ERROR] Key '#{key}' was found in '#{locale_name}.yml' but #{Tolk::Locale.primary_language_name} translation is missing"
