@@ -14,7 +14,7 @@ module Tolk
           # bypass default init_translations
           I18n.backend.reload! if I18n.backend.initialized?
           I18n.backend.instance_variable_set(:@initialized, true)
-          translations_files = Dir[Rails.root.join('config', 'locales', "**/*.{rb,yml}")]
+          translations_files = Dir[Rails.root.join('config', 'locales', "*.{rb,yml}")]
 
           if Tolk.config.block_xxx_en_yml_locale_files
             locale_block_filter = Proc.new {
